@@ -1,15 +1,15 @@
 {
-  "name": "@metamask/snap-box",
+  "name": "@Montoya/snap-tx-insights-box",
   "version": "0.1.0",
   "private": true,
   "description": "",
-  "homepage": "https://github.com/MetaMask/snap-box#readme",
+  "homepage": "https://github.com/Montoya/snap-tx-insights-box#readme",
   "bugs": {
-    "url": "https://github.com/MetaMask/snap-box/issues"
+    "url": "https://github.com/Montoya/snap-tx-insights-box/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetaMask/snap-box.git"
+    "url": "git+https://github.com/Montoya/snap-tx-insights-box.git"
   },
   "license": "(MIT-0 OR Apache-2.0)",
   "author": "",

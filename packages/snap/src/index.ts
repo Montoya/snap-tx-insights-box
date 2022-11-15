@@ -1,25 +1,22 @@
-import { OnRpcRequestHandler } from '@metamask/snap-types';
+import { OnTransactionHandler, OnRpcRequestHandler } from '@metamask/snap-types';
+import { getInsights } from './insights';
 
 /**
- * Get a message from the origin. For demonstration purposes only.
+ * Handle an incoming transaction, and return any insights.
  *
- * @param originString - The origin string.
- * @returns A message based on the origin.
+ * @param args - The request handler args as object.
+ * @param args.transaction - The transaction object.
+ * @returns The transaction insights.
  */
+export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+  return {
+    insights: await getInsights(transaction),
+  };
+};
+
 export const getMessage = (originString: string): string =>
   `Hello, ${originString}!`;
 
-/**
- * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
- *
- * @param args - The request handler args as object.
- * @param args.origin - The origin of the request, e.g., the website that
- * invoked the snap.
- * @param args.request - A validated JSON-RPC request object.
- * @returns `null` if the request succeeded.
- * @throws If the request method is not valid for this snap.
- * @throws If the `snap_confirm` call failed.
- */
 export const onRpcRequest: OnRpcRequestHandler = ({ origin, request }) => {
   switch (request.method) {
     case 'hello':
