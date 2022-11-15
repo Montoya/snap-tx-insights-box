@@ -1,4 +1,7 @@
-import { OnTransactionHandler, OnRpcRequestHandler } from '@metamask/snap-types';
+import {
+  OnTransactionHandler,
+  OnRpcRequestHandler,
+} from '@metamask/snap-types';
 import { getInsights } from './insights';
 
 /**
