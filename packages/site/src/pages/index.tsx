@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
   connectSnap,
+  TransactionConstants,
   getSnap,
-  sendHello,
+  sendContractTransaction,
   shouldDisplayReconnectButton,
 } from '../utils';
 import {
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
-  SendHelloButton,
+  SendContractTransactionButton,
   Card,
 } from '../components';
 
@@ -116,10 +117,22 @@ const Index = () => {
       dispatch({ type: MetamaskActions.SetError, payload: e });
     }
   };
-
+/*
   const handleSendHelloClick = async () => {
     try {
       await sendHello();
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: MetamaskActions.SetError, payload: e });
+    }
+  };
+*/
+
+  const handleSendContractTransactionClick = async () => {
+    try {
+      await sendContractTransaction(
+        TransactionConstants.UpdateWithdrawalAccount,
+      );
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });
@@ -185,22 +198,18 @@ const Index = () => {
         )}
         <Card
           content={{
-            title: 'Send Hello message',
+            title: 'Send Contract Transaction',
             description:
-              'Display a custom message within a confirmation screen in MetaMask.',
+              'Create a pending contract transaction in MetaMask so we can attempt to decode it.',
             button: (
-              <SendHelloButton
-                onClick={handleSendHelloClick}
-                disabled={!state.installedSnap}
+              <SendContractTransactionButton
+                onClick={handleSendContractTransactionClick}
+                disabled={false}
               />
             ),
           }}
-          disabled={!state.installedSnap}
-          fullWidth={
-            state.isFlask &&
-            Boolean(state.installedSnap) &&
-            !shouldDisplayReconnectButton(state.installedSnap)
-          }
+          disabled={false}
+          fullWidth={false}
         />
         <Notice>
           <p>
