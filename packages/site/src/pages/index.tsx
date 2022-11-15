@@ -142,7 +142,7 @@ const Index = () => {
   return (
     <Container>
       <Heading>
-        Welcome to <Span>template-snap</Span>
+        Welcome to <Span>ABI Decoder Snap</Span>
       </Heading>
       <Subtitle>
         Get started by editing <code>src/index.ts</code>
