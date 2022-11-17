@@ -1,4 +1,4 @@
-![box-img-readme](box-img-readme.jpg)
+![box-img-readme](https://github.com/Montoya/snap-tx-insights-box/blob/main/box-img-readme.jpg)
 
 # @Montoya/snap-tx-insights-box
 
