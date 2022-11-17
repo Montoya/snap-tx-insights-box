@@ -12,6 +12,7 @@ import {
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
+  SetNetworkToGanacheButton,
   SendContractTransactionButton,
   Card,
 } from '../components';
@@ -128,6 +129,18 @@ const Index = () => {
   };
 */
 
+  const handleSetNetworkToGanacheClick = async () => {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: '0x539' }],
+      });
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: MetamaskActions.SetError, payload: e });
+    }
+  };
+
   const handleSendContractTransactionClick = async () => {
     try {
       await sendContractTransaction(
@@ -196,6 +209,21 @@ const Index = () => {
             disabled={!state.installedSnap}
           />
         )}
+        <Card
+          content={{
+            title: 'Connect to Ganache',
+            description:
+              'Switch your network to your local Ganache instance for testing.',
+            button: (
+              <SetNetworkToGanacheButton 
+                onClick={handleSetNetworkToGanacheClick}
+                disabled={false}
+              />
+            ),
+          }}
+          disabled={false}
+          fullWidth={false}
+        />
         <Card
           content={{
             title: 'Send Contract Transaction',
