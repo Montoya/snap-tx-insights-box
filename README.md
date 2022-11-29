@@ -1,4 +1,4 @@
-![box-img-readme](https://github.com/Montoya/tx-insights-with-4byte-snap/blob/main/box-img-readme.jpg)
+![box-img-readme](https://raw.githubusercontent.com/Montoya/tx-insights-with-4byte-snap/master/box-img-readme.jpg)
 
 # @Montoya/tx-insights-with-4byte-snap
 
